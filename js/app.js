@@ -54,22 +54,22 @@ let guessedLetter;
 // generate a random word 
 const resetGame = () => {
 randomWord = words[Math.floor(Math.random() * words.length)];
+incorrectGuess = 0;
 gameOver = true;
 winner = false;
 console.log(randomWord);
 guessedLetter = [];
-if (incorrectGuess === 7)
-console.log('You Lost!')
 };
 
-
-// try and create a way to choose letters? 
-const letterClick = () => {
-   letterChoices.forEach(letter)
-   if (letter = true ) {
-    
-   }
+const playerGuess = () => {
+if (incorrectGuess === 7)
+    console.log('You Lost!')
 }
+// try and create a way to choose letters? 
+const letterClick = (clickedLetter) => {
+    if (guessedLetter.includes(clickedLetter)) {
+        return;
+    }}
 
 
 
