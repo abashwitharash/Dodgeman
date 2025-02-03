@@ -10,9 +10,9 @@ h1 {
 
 #word-display {
     display: grid;
-    grid-template-columns: repeat(auto-fill); /* auto adjusts based on word length */
+    grid-template-columns: repeat(auto-fill); /* auto adjusts based on word length - adds new boxes - looked on google*/
     grid-template-areas:
-    'div div div div';
+    'div';
     gap: 10px;
     font-size: 2rem;
     justify-content: center;
@@ -22,7 +22,7 @@ h1 {
   .letter-box {
     width: 40px;
     height: 40px;
-    border: 1px solid #000;
+    border: 1px solid black;
     text-align: center;
     line-height: 40px;
   }

@@ -31,12 +31,13 @@ const letterChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
     'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 
 'u', 'v', 'w', 'x', 'y', 'z'  ]
 const words = ['general', 'harry potter', 'functions', 'zinque', 'los angeles', 'coding', 'artifical intelligence', 
-    'nemo', 'ben manning']
+    'nemo', 'earth']
 
-    const restartBtnEl = document.querySelector('#restartBtn')
-    const lettersEl = document.querySelector('#letters')
-    const letterBtnEl = document.querySelectorAll(".letter-button")
-    const startBtnEl = document.querySelector('#startBtn')
+    const restartBtnEl = document.querySelector('#restartBtn');
+    const lettersEl = document.querySelector('#letters');
+    const letterBtnEl = document.querySelectorAll(".letter-button");
+    const startBtnEl = document.querySelector('#startBtn');
+    const wordDisplayEl = document.querySelector('#word-display');
 
 /*-------------------------------- Variables --------------------------------*/
 let playerOne;
@@ -44,33 +45,43 @@ let gameOver;
 let winner;
 let randomWord;
 let incorrectGuess;
-let guessedLetter;
+let guessedLetter = [];
+
 
 // Create a start game function 
-// const startGame = () => {
-//     let randomWord = words[Math.floor(Math.random() * words.length)];
-// }
+const startGame = () => {
+    randomWord = words[Math.floor(Math.random() * words.length)];
+    //string 
+    guessedLetter = [];
+    console.log(randomWord);
+}
 
-// generate a random word 
-const resetGame = () => {
-randomWord = words[Math.floor(Math.random() * words.length)];
-incorrectGuess = 0;
-gameOver = true;
-winner = false;
-console.log(randomWord);
-guessedLetter = [];
-};
 
+// RESET DO LATER
+// const resetGame = () => {
+// randomWord = words[Math.floor(Math.random() * words.length)];
+// incorrectGuess = 0;
+// gameOver = false;
+// wordDisplayEl.textContent = ''; // what do i want this to display when restarts? '' = nothing? 
+// };
+
+
+//image trending 
 const playerGuess = () => {
 if (incorrectGuess === 7)
     console.log('You Lost!')
 }
-// try and create a way to choose letters? 
-const letterClick = (clickedLetter) => {
-    if (guessedLetter.includes(clickedLetter)) {
-        return;
-    }}
 
+
+// try and create a way to choose letters? 
+const clickedLetter = (letterChoices) => {
+    if (randomWord.includes(letterChoices)) {
+        console.log('Correct guess:', letterChoices)
+      } else {
+        console.log('this is not found')
+      }
+      
+}
 
 
 
@@ -79,8 +90,8 @@ const letterClick = (clickedLetter) => {
 /*-------------------------------- Functions --------------------------------*/
 
 /*----------------------------- Event Listeners -----------------------------*/
-restartBtnEl.addEventListener('click', resetGame);
-// startBtnEl.addEventListener('click', startGame);
-
+// restartBtnEl.addEventListener('click', resetGame);
+startBtnEl.addEventListener('click', startGame);
+letterBtnEl.forEach(letterBtn => letterBtn.addEventListener('click', clickedLetter));
 
 
