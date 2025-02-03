@@ -25,3 +25,62 @@
 // Optional:  
 // - Add a hint section for each word?? could be tough???
 
+
+/*-------------------------------- Constants --------------------------------*/
+const letterChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
+    'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 
+'u', 'v', 'w', 'x', 'y', 'z'  ]
+const words = ['general', 'harry potter', 'functions', 'zinque', 'los angeles', 'coding', 'artifical intelligence', 
+    'nemo', 'ben manning']
+
+    const restartBtnEl = document.querySelector('#restartBtn')
+    const lettersEl = document.querySelector('#letters')
+    const letterBtnEl = document.querySelectorAll(".letter-button")
+    const startBtnEl = document.querySelector('#startBtn')
+
+/*-------------------------------- Variables --------------------------------*/
+let playerOne;
+let gameOver;
+let winner;
+let randomWord;
+let incorrectGuess;
+let guessedLetter;
+
+// Create a start game function 
+// const startGame = () => {
+//     let randomWord = words[Math.floor(Math.random() * words.length)];
+// }
+
+// generate a random word 
+const resetGame = () => {
+randomWord = words[Math.floor(Math.random() * words.length)];
+gameOver = true;
+winner = false;
+console.log(randomWord);
+guessedLetter = [];
+if (incorrectGuess === 7)
+console.log('You Lost!')
+};
+
+
+// try and create a way to choose letters? 
+const letterClick = () => {
+   letterChoices.forEach(letter)
+   if (letter = true ) {
+    
+   }
+}
+
+
+
+
+/*------------------------ Cached Element References ------------------------*/
+
+/*-------------------------------- Functions --------------------------------*/
+
+/*----------------------------- Event Listeners -----------------------------*/
+restartBtnEl.addEventListener('click', resetGame);
+// startBtnEl.addEventListener('click', startGame);
+
+
+
