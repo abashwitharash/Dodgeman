@@ -57,32 +57,19 @@ const startGame = () => {
 
 
 // RESET DO LATER DO NOT TOUCH NOW 
-// const resetGame = () => {
-// randomWord = words[Math.floor(Math.random() * words.length)];
-// incorrectGuess = 0;
-// gameOver = false;
+const resetGame = () => {
+randomWord = words[Math.floor(Math.random() * words.length)];
+incorrectGuess = 0;
+gameOver = false;
+console.log(randomWord);
 // wordDisplayEl.textContent = ''; // what do i want this to display when restarts? '' = nothing? 
-// };
+};
 
 
 //image trending 
 const playerGuess = () => {
 if (incorrectGuess === 7);
 }
-
-
-// try and create a way to choose letters? 
-// const clickedLetter = (letter) => {
-//     if (randomWord.includes(letter)) {
-//         console.log('Correct guess:', letter)
-//       } else {
-//         console.log('this is not found')
-//       }
-      
-// }
-
-
-
 
 
 // Function to handle clicked letter
@@ -106,7 +93,7 @@ const clickedLetter = (letter) => {
 /*-------------------------------- Functions --------------------------------*/
 
 /*----------------------------- Event Listeners -----------------------------*/
-// restartBtnEl.addEventListener('click', resetGame);
+
 startBtnEl.addEventListener('click', startGame)
 letterBtnEl.forEach(letterBtn => {
     letterBtn.addEventListener('click', (event) => {
@@ -115,6 +102,7 @@ letterBtnEl.forEach(letterBtn => {
         event.target.disabled = true;
     
     })});
+    restartBtnEl.addEventListener('click', resetGame);
 
 
 
