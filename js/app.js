@@ -29,7 +29,8 @@
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
     'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 
 'u', 'v', 'w', 'x', 'y', 'z'  ]
-const words = ['general', 'harry potter', 'functions', 'zinque', 'los angeles', 'coding', 'artifical intelligence', 
+const words = ['general', 'harry potter', 'functions', 'zinque', 
+    'los angeles', 'coding', 'artifical intelligence', 
     'finding nemo', 'planet earth']
 
     const restartBtnEl = document.querySelector('#restartBtn');
@@ -37,6 +38,7 @@ const words = ['general', 'harry potter', 'functions', 'zinque', 'los angeles', 
     const letterBtnEl = document.querySelectorAll(".letter-button");
     const startBtnEl = document.querySelector('#startBtn');
     const wordDisplayEl = document.querySelector('#word-display');
+    const letterBoxEl = document.querySelectorAll('.letter-box');
 
 /*-------------------------------- Variables --------------------------------*/
 let playerOne;
@@ -52,41 +54,62 @@ const startGame = () => {
     randomWord = words[Math.floor(Math.random() * words.length)];
     incorrectGuess = 0;
     gameOver = false;
-    correctGuess = 0;
-    guessedLetter = 0;
+    correctGuess = [];
+    guessedLetter = [];
+    
+    for (let i = 0; i < randomWord.length; i++) {
+        guessedLetter.push('_');
+    }
+    updateWordDisplay();
     console.log(randomWord);
 }
+
+// need to create a new display so it prints into the html 
+const updateWordDisplay = () => {
+    wordDisplayEl.innerHTML = guessedLetter.join(' ');
+}
+
+const handleClick = (event) => {
+    const letter = event.target.textContent;  // Get letter from the button's text
+    clickedLetter(letter);  // Call the function to handle the letter guess
+    event.target.disabled = true;  // Disable the button after it’s clicked
+};
 
 //image trending 
 const playerGuess = () => {
 if (incorrectGuess === 1);
 }
 
-wordDisplayEl
-
 // Function to handle clicked letter
 const clickedLetter = (letter) => {
 
-    if (gameOver)
-        return;
-
     if (randomWord.includes(letter)) {
         console.log('Correct guess:', letter);
-       
+        randomWord.split('').forEach((char, index) => {
+            if (char === letter) {
+                guessedLetter[index] = letter;  // Replace _ with the letter at the correct index
+            }
+        });
+        updateWordDisplay();
     } else {
         console.log('Incorrect guess:', letter);
         incorrectGuess++;  // Increment incorrect guesses
     }
     if (incorrectGuess === 7) {
+        gameOver = true;
         letterBtnEl.forEach(button => {
             button.disabled = true;  // need to disable all buttons once 7 is clicked 
         console.log('you lost') //this will print you lost after 7 guesses 
+        if (gameOver)
+            return;
         })}};
 
 
 
         // RESET DO LATER DO NOT TOUCH NOW 
 const resetGame = () => {
+    gameOver = false;
+    clearInterval();
     startGame();
 //loop through eaxh button and disables the diable button code resetting 
 letterBtnEl.forEach(button => button.disabled = false); 
@@ -99,11 +122,7 @@ letterBtnEl.forEach(button => button.disabled = false);
 
 startBtnEl.addEventListener('click', startGame)
 letterBtnEl.forEach(letterBtn => {
-    letterBtn.addEventListener('click', (event) => {
-        const letter = event.target.textContent;  // Get letter from the button's text
-        clickedLetter(letter);
-        event.target.disabled = true;
-    
-    })});
+    letterBtn.addEventListener('click', handleClick);  // Use the handleClick function for each button click
+}); 
     restartBtnEl.addEventListener('click', resetGame);
 
