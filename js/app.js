@@ -8,9 +8,8 @@
 // Create variables to track the state of the game and define the player.  
 // Create arrays to hold letters and words that will cycle randomly.  
 // Create a reset button and a game-over message.  
-// Add click events for letters.  
-// Display blank spaces for the word without revealing it.  
-// Create a separate panel to show clicked letters.  
+// Add click events for letters.   
+// Have letters be disabled when clicked 
 
 // Prevent clicking the same letter twice—disable it after selection.  
 // Create an on-screen keyboard (research how to display a virtual keyboard).  
@@ -27,7 +26,7 @@
 
 
 /*-------------------------------- Constants --------------------------------*/
-const letterChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
     'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 
 'u', 'v', 'w', 'x', 'y', 'z'  ]
 const words = ['general', 'harry potter', 'functions', 'zinque', 'los angeles', 'coding', 'artifical intelligence', 
@@ -41,23 +40,23 @@ const words = ['general', 'harry potter', 'functions', 'zinque', 'los angeles', 
 
 /*-------------------------------- Variables --------------------------------*/
 let playerOne;
-let gameOver;
+let gameOver = false;
 let winner;
 let randomWord;
-let incorrectGuess;
+let incorrectGuess = 0;
 let guessedLetter = [];
+let correctGuess;
 
 
 // Create a start game function 
 const startGame = () => {
     randomWord = words[Math.floor(Math.random() * words.length)];
     //string 
-    guessedLetter = [];
     console.log(randomWord);
 }
 
 
-// RESET DO LATER
+// RESET DO LATER DO NOT TOUCH NOW 
 // const resetGame = () => {
 // randomWord = words[Math.floor(Math.random() * words.length)];
 // incorrectGuess = 0;
@@ -68,21 +67,38 @@ const startGame = () => {
 
 //image trending 
 const playerGuess = () => {
-if (incorrectGuess === 7)
-    console.log('You Lost!')
+if (incorrectGuess === 7);
 }
 
 
 // try and create a way to choose letters? 
-const clickedLetter = (letterChoices) => {
-    if (randomWord.includes(letterChoices)) {
-        console.log('Correct guess:', letterChoices)
-      } else {
-        console.log('this is not found')
-      }
+// const clickedLetter = (letter) => {
+//     if (randomWord.includes(letter)) {
+//         console.log('Correct guess:', letter)
+//       } else {
+//         console.log('this is not found')
+//       }
       
-}
+// }
 
+
+
+
+
+// Function to handle clicked letter
+const clickedLetter = (letter) => {
+    if (randomWord.includes(letter)) {
+        console.log('Correct guess:', letter);
+       
+    } else {
+        console.log('Incorrect guess:', letter);
+        incorrectGuess++;  // Increment incorrect guesses
+    }
+    if (incorrectGuess === 7) {
+        letterBtnEl.forEach(button => {
+            button.disabled = true;  // need to disable all buttons once 7 is clicked 
+        console.log('you lost') //this will print you lost after 7 guesses 
+        })}};
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -91,7 +107,14 @@ const clickedLetter = (letterChoices) => {
 
 /*----------------------------- Event Listeners -----------------------------*/
 // restartBtnEl.addEventListener('click', resetGame);
-startBtnEl.addEventListener('click', startGame);
-letterBtnEl.forEach(letterBtn => letterBtn.addEventListener('click', clickedLetter));
+startBtnEl.addEventListener('click', startGame)
+letterBtnEl.forEach(letterBtn => {
+    letterBtn.addEventListener('click', (event) => {
+        const letter = event.target.textContent;  // Get letter from the button's text
+        clickedLetter(letter);
+        event.target.disabled = true;
+    
+    })});
+
 
 
