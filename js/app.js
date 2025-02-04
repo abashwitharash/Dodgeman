@@ -30,7 +30,7 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
     'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 
 'u', 'v', 'w', 'x', 'y', 'z'  ]
 const words = ['general', 'harry potter', 'functions', 'zinque', 'los angeles', 'coding', 'artifical intelligence', 
-    'nemo', 'earth']
+    'finding nemo', 'planet earth']
 
     const restartBtnEl = document.querySelector('#restartBtn');
     const lettersEl = document.querySelector('#letters');
@@ -41,39 +41,35 @@ const words = ['general', 'harry potter', 'functions', 'zinque', 'los angeles', 
 /*-------------------------------- Variables --------------------------------*/
 let playerOne;
 let gameOver = false;
-let winner;
 let randomWord;
 let incorrectGuess = 0;
 let guessedLetter = [];
-let correctGuess;
+let correctGuess = [];
 
 
 // Create a start game function 
 const startGame = () => {
     randomWord = words[Math.floor(Math.random() * words.length)];
-    //string 
+    incorrectGuess = 0;
+    gameOver = false;
+    correctGuess = 0;
+    guessedLetter = 0;
     console.log(randomWord);
 }
 
-
-// RESET DO LATER DO NOT TOUCH NOW 
-const resetGame = () => {
-randomWord = words[Math.floor(Math.random() * words.length)];
-incorrectGuess = 0;
-gameOver = false;
-console.log(randomWord);
-// wordDisplayEl.textContent = ''; // what do i want this to display when restarts? '' = nothing? 
-};
-
-
 //image trending 
 const playerGuess = () => {
-if (incorrectGuess === 7);
+if (incorrectGuess === 1);
 }
 
+wordDisplayEl
 
 // Function to handle clicked letter
 const clickedLetter = (letter) => {
+
+    if (gameOver)
+        return;
+
     if (randomWord.includes(letter)) {
         console.log('Correct guess:', letter);
        
@@ -88,6 +84,13 @@ const clickedLetter = (letter) => {
         })}};
 
 
+
+        // RESET DO LATER DO NOT TOUCH NOW 
+const resetGame = () => {
+    startGame();
+//loop through eaxh button and disables the diable button code resetting 
+letterBtnEl.forEach(button => button.disabled = false); 
+};
 /*------------------------ Cached Element References ------------------------*/
 
 /*-------------------------------- Functions --------------------------------*/
@@ -103,6 +106,4 @@ letterBtnEl.forEach(letterBtn => {
     
     })});
     restartBtnEl.addEventListener('click', resetGame);
-
-
 
