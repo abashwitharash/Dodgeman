@@ -68,31 +68,12 @@ body {
   gap: 20px;
 }
 
-
-/*
-.letter-button {
-  font-size: 18px;
-  margin: 5px;
-  padding: 10px 15px;
-  cursor: pointer;
-  background-color: white;
-  border: 1px solid black;
-}
-#word-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  font-size: 2rem;
-  gap: 20px;
-}
-
-
-
 #word-display span {
-  padding: 10px;
+  padding: 5px;
   border: 2px solid black;
   min-width: 30px; 
   text-align: center;
   display:center;
 } 
+
+

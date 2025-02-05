@@ -52,6 +52,8 @@ const startGame = () => {
     incorrectGuess = 0;
     gameOver = false;
     guessedLetter = [ ];
+
+    startBtnEl.style.display = 'none';
     
 
     
