@@ -26,12 +26,10 @@
 
 
 /*-------------------------------- Constants --------------------------------*/
-const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
-    'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 
-'u', 'v', 'w', 'x', 'y', 'z'  ]
-const words = ['general', 'harry potter', 'functions', 'zinque', 
-    'los angeles', 'coding', 'artifical intelligence', 
-    'finding nemo', 'planet earth']
+const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+const words = ['mavericks', 'clippers', 'steelers', 'raiders', 
+    'chargers', 'cowbows', 'canucks', 
+    'padres', 'commanders']
 
     const restartBtnEl = document.querySelector('#restartBtn');
     const lettersEl = document.querySelector('#letters');
@@ -39,14 +37,13 @@ const words = ['general', 'harry potter', 'functions', 'zinque',
     const startBtnEl = document.querySelector('#startBtn');
     const wordDisplayEl = document.querySelector('#word-display');
     const letterBoxEl = document.querySelectorAll('.letter-box');
+    const gameMessageEl = document.querySelector('#gameMessage');
 
 /*-------------------------------- Variables --------------------------------*/
-let playerOne;
 let gameOver = false;
 let randomWord;
 let incorrectGuess = 0;
 let guessedLetter = [];
-let correctGuess = [];
 
 
 // Create a start game function 
@@ -54,20 +51,30 @@ const startGame = () => {
     randomWord = words[Math.floor(Math.random() * words.length)];
     incorrectGuess = 0;
     gameOver = false;
-    correctGuess = [];
-    guessedLetter = [];
+    guessedLetter = [ ];
+    
+
     
     for (let i = 0; i < randomWord.length; i++) {
-        guessedLetter.push('_');
+        if (randomWord[i] === ' ') 
+            {
+        } else {
+            guessedLetter.push('_');  //push an underscore for letters
+        }
     }
     updateWordDisplay();
     console.log(randomWord);
 }
-
 // need to create a new display so it prints into the html 
 const updateWordDisplay = () => {
-    wordDisplayEl.innerHTML = guessedLetter.join(' ');
-}
+    wordDisplayEl.innerHTML = '';  // Clear any existing content
+    guessedLetter.forEach(letter => {
+        const letterSpan = document.createElement('span');
+        letterSpan.textContent = letter;
+        wordDisplayEl.appendChild(letterSpan);
+    });
+};
+
 
 const handleClick = (event) => {
     const letter = event.target.textContent;  // Get letter from the button's text
@@ -76,43 +83,56 @@ const handleClick = (event) => {
 };
 
 //image trending 
-const playerGuess = () => {
-if (incorrectGuess === 1);
-}
+// const playerGuess = () => {
+// if (incorrectGuess === 1);
+// }
 
 // Function to handle clicked letter
 const clickedLetter = (letter) => {
 
     if (randomWord.includes(letter)) {
-        console.log('Correct guess:', letter);
-        randomWord.split('').forEach((char, index) => {
-            if (char === letter) {
-                guessedLetter[index] = letter;  // Replace _ with the letter at the correct index
+        console.log('Correct Guess:', letter);
+        for (let i = 0; i < randomWord.length; i++) {
+            if (randomWord[i] === letter) {
+                guessedLetter[i] = letter;
             }
-        });
+        }
         updateWordDisplay();
     } else {
         console.log('Incorrect guess:', letter);
         incorrectGuess++;  // Increment incorrect guesses
     }
-    if (incorrectGuess === 7) {
+    if (incorrectGuess === 6) {
         gameOver = true;
         letterBtnEl.forEach(button => {
-            button.disabled = true;  // need to disable all buttons once 7 is clicked 
-        console.log('you lost') //this will print you lost after 7 guesses 
-        if (gameOver)
-            return;
-        })}};
+            button.disabled = true;  // Disable all buttons once game is over
+        });
+        console.log('You lost');
+        gameMessageEl.innerHTML = 'Game Over! You lost! Try Again?';
+    }
+
+    // Check for win condition (all letters guessed)
+    if (!guessedLetter.includes('_')) {
+        gameOver = true;
+        letterBtnEl.forEach(button => {
+            button.disabled = true; 
+        });
+        console.log('You won!');
+        gameMessageEl.innerHTML = 'Congratulations! You won!';
+    }
+};
 
 
 
         // RESET DO LATER DO NOT TOUCH NOW 
 const resetGame = () => {
     gameOver = false;
-    clearInterval();
+    incorrectGuess = 0;
+    guessedLetter = [];
     startGame();
 //loop through eaxh button and disables the diable button code resetting 
 letterBtnEl.forEach(button => button.disabled = false); 
+gameMessageEl.innerHTML = '';
 };
 /*------------------------ Cached Element References ------------------------*/
 
