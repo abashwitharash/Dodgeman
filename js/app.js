@@ -67,7 +67,7 @@ const startGame = () => {
 }
 // need to create a new display so it prints into the html 
 const updateWordDisplay = () => {
-    wordDisplayEl.innerHTML = '';  // Clear any existing content
+    wordDisplayEl.innerHTML = '';  // Clear any existing content - help with MDN
     guessedLetter.forEach(letter => {
         const letterSpan = document.createElement('span');
         letterSpan.textContent = letter;

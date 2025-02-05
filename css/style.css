@@ -1,47 +1,98 @@
-
 h1 {
   font-size: 50px;
   display: flex;
   justify-content: center;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+h2 {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+#gameMessage {
+  margin-top: 20px;
+  font-size: 2rem;
+  text-align: center;
+  color: black;
 }
 
 #letters {
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
+  gap: 5px;
 }
 
+.letter-button {
+  font-size: 25px;
+  cursor: pointer;
+  padding: 10px 15px;
+  background-color: pink;
+}
+
+#restartBtn {
+  position: absolute;
+  bottom: 20px;
+  left: 46%;
+  font-size: 20px;
+
+}
+
+#startBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+body {
+  background-color: green;
+}
+
+#word-display {
+  position: absolute;
+  bottom: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 2rem;
+  gap: 20px;
+}
+
+
+/*
 .letter-button {
   font-size: 18px;
   margin: 5px;
   padding: 10px 15px;
   cursor: pointer;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: white;
+  border: 1px solid black;
 }
-
 #word-display {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 2rem;
   gap: 20px;
 }
 
+
+
 #word-display span {
   padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  min-width: 30px;  /* Ensures each letter has the same width */
+  border: 2px solid black;
+  min-width: 30px; 
   text-align: center;
-}
-
-#gameMessage {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  text-align: center;
-  color: #333;
-}
+  display:center;
+} 
