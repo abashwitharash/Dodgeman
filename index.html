@@ -9,10 +9,18 @@
 </head>
 <body>
     <h1>Dodgeman☄️</h1>
-    <h2>Can you guess the Sports team?</h2>
+    <h2>Game Rules:</h2>
+    <ol id="game-rules">
+        <li>Click the letters to guess the sports team!</li>
+        <li>Don't let the ball hit the dude!</li>
+        <li>Every incorrect letter pushes the ball closer!</li>
+        <li>Have fun!</li>
+    </ol> 
     <button id = 'startBtn'>Start</button>
-    <!-- <img src="" alt="" id = 'dodgeball'> -->
-    <img src="./assets/1.png" alt="1.png" id = 'dodgeball'>
+    <img src="./assets/1.png" alt = '1.png' id = 'dodgeball'>
+</div>
+<div id="word-display">
+</div>
     <div id="letters">
         <button class="letter-button">a</button>
         <button class="letter-button">b</button>
@@ -40,8 +48,6 @@
         <button class="letter-button">x</button>
         <button class="letter-button">y</button>
         <button class="letter-button">z</button>
-      </div>
-      <div id="word-display">
       </div>
       <div id="gameMessage"></div>
       <button id='restartBtn'>Try Again?</button>
