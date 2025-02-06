@@ -19,7 +19,7 @@
 
 // Win/Lose Conditions:  
 // - If all letters are revealed, display "You Win!"  
-// - If incorrect guesses reach 7, display "You Lose!"  
+// - If incorrect guesses reach 5, display "You Lose!"  
 
 // Optional:  
 // - Add a hint section for each word?? could be tough???
@@ -38,6 +38,7 @@ const words = ['mavericks', 'clippers', 'steelers', 'raiders',
     const wordDisplayEl = document.querySelector('#word-display');
     const letterBoxEl = document.querySelectorAll('.letter-box');
     const gameMessageEl = document.querySelector('#gameMessage');
+    const dodgeballEl = document.querySelector('#dodgeball');
 
 /*-------------------------------- Variables --------------------------------*/
 let gameOver = false;
@@ -52,6 +53,7 @@ const startGame = () => {
     incorrectGuess = 0;
     gameOver = false;
     guessedLetter = [ ];
+ 
 
     startBtnEl.style.display = 'none';
     
@@ -84,10 +86,12 @@ const handleClick = (event) => {
     event.target.disabled = true;  // Disable the button after it’s clicked
 };
 
-//image trending 
-// const playerGuess = () => {
-// if (incorrectGuess === 1);
-// }
+// image trending 
+const playerGuess = () => {
+if (incorrectGuess === 1);
+dodgeballEl.src = "../assets/1.png"; 
+}
+// playerGuess();
 
 // Function to handle clicked letter
 const clickedLetter = (letter) => {
@@ -103,8 +107,11 @@ const clickedLetter = (letter) => {
     } else {
         console.log('Incorrect guess:', letter);
         incorrectGuess++;  // Increment incorrect guesses
+        // console.log(incorrectGuess++)
+        console.log(incorrectGuess)
+        dodgeballEl.src = `${'../assets/'+incorrectGuess+'.png'}`
     }
-    if (incorrectGuess === 5) {
+    if (incorrectGuess === 6) {
         gameOver = true;
         letterBtnEl.forEach(button => {
             button.disabled = true;  // Disable all buttons once game is over
@@ -131,6 +138,7 @@ const resetGame = () => {
     gameOver = false;
     incorrectGuess = 0;
     guessedLetter = [];
+    dodgeballEl.src = '';
     startGame();
 //loop through eaxh button and disables the diable button code resetting 
 letterBtnEl.forEach(button => button.disabled = false); 
