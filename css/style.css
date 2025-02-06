@@ -12,7 +12,7 @@ h1 {
   font-size: 50px;
   font-style: italic;
   margin-bottom: 10px;
-  color: #FF4500;
+  color: #CC3700;
 }
 
 h2 {
@@ -49,13 +49,6 @@ button {
   cursor: pointer;
 }
 
-#startBtn {
-  background-color: #FF4500;;
-  color: white;
-  margin: 20px 0;
-}
-
-
 #dodgeball {
   max-width: 100%;
   height: auto;
@@ -91,7 +84,7 @@ button {
 .letter-button {
   font-size: 20px;
   padding: 10px;
-  background-color: pink;
+  background-color: #B00063;
   text-align: center;
   border-radius: 5px;
   border: 1px solid black;
@@ -101,12 +94,18 @@ button {
 #gameMessage {
   font-size: 1.5rem;
   font-weight: bold;
-  color: white;
+  color: black;
   margin-top: 10px;
 }
 
 #restartBtn {
-  background-color: #FF4500;;
+  background-color: #CC3700;
   color: white;
   margin-top: 10px;
+}
+
+#startBtn {
+  background-color: #CC3700;
+  color: white;
+  margin: 20px 0;
 }

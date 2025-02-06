@@ -109,7 +109,6 @@ const clickedLetter = (letter) => {
         console.log('Incorrect guess:', letter);
         incorrectGuess++;  // Increment incorrect guesses
         dodgeballEl.style.display = 'block';
-        console.log(incorrectGuess)
         dodgeballEl.src = `${'../assets/'+incorrectGuess+'.png'}`
     }
     if (incorrectGuess === 6) {
