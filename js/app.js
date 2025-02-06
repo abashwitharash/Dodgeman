@@ -21,14 +21,12 @@
 // - If all letters are revealed, display "You Win!"  
 // - If incorrect guesses reach 5, display "You Lose!"  
 
-// Optional:  
-// - Add a hint section for each word?? could be tough???
 
 
 /*-------------------------------- Constants --------------------------------*/
 const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
 const words = ['mavericks', 'clippers', 'steelers', 'raiders', 
-    'chargers', 'cowbows', 'canucks', 
+    'chargers', 'cowboys', 'canucks', 
     'padres', 'commanders']
 
     const restartBtnEl = document.querySelector('#restartBtn');
@@ -117,7 +115,7 @@ const clickedLetter = (letter) => {
             button.disabled = true;  // Disable all buttons once game is over
         });
         console.log('You lost');
-        gameMessageEl.innerHTML = 'Game Over! You lost! Try Again?';
+        gameMessageEl.innerHTML = `Game Over! The word was: ${randomWord}`;
     }
 
     // Check for win condition (all letters guessed)
