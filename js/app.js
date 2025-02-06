@@ -104,7 +104,7 @@ const clickedLetter = (letter) => {
         console.log('Incorrect guess:', letter);
         incorrectGuess++;  // Increment incorrect guesses
     }
-    if (incorrectGuess === 6) {
+    if (incorrectGuess === 5) {
         gameOver = true;
         letterBtnEl.forEach(button => {
             button.disabled = true;  // Disable all buttons once game is over
