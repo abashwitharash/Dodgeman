@@ -1,11 +1,6 @@
 # *Dodgeman☄️*
 
-Screenshot/Logo
-![SCREENSHOT OF LOGO][assets logo/logo.png]
-
-
-
-(Add a screenshot or logo of your game here)
+![SCREENSHOT OF LOGO](logo/logo.png)
 
 Game Description
 
