@@ -44,15 +44,12 @@ let randomWord;
 let incorrectGuess = 0;
 let guessedLetter = [];
 
-
-// Create a start game function 
 const startGame = () => {
     randomWord = words[Math.floor(Math.random() * words.length)];
     incorrectGuess = 0;
     gameOver = false;
     guessedLetter = [ ];
  
-
     startBtnEl.style.display = 'none';
     dodgeballEl.style.display = 'none';
     
@@ -85,13 +82,6 @@ const handleClick = (event) => {
     event.target.disabled = true;  // Disable the button after it’s clicked
 };
 
-// image trending 
-const playerGuess = () => {
-if (incorrectGuess === 1);
-dodgeballEl.src = "../assets/1.png"; 
-}
-// playerGuess();
-
 // Function to handle clicked letter
 const clickedLetter = (letter) => {
 
@@ -107,6 +97,7 @@ const clickedLetter = (letter) => {
         console.log('Incorrect guess:', letter);
         incorrectGuess++;  // Increment incorrect guesses
         dodgeballEl.style.display = 'block';
+        console.log(incorrectGuess)
         dodgeballEl.src = `${'../assets/'+incorrectGuess+'.png'}`
     }
     if (incorrectGuess === 6) {
@@ -130,8 +121,6 @@ const clickedLetter = (letter) => {
 };
 
 
-
-        // RESET DO LATER DO NOT TOUCH NOW 
 const resetGame = () => {
     gameOver = false;
     incorrectGuess = 0;

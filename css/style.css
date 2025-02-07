@@ -9,6 +9,8 @@ body {
 }
 
 h1 {
+  position: relative;
+  top: -40px;
   font-size: 50px;
   font-style: italic;
   margin-bottom: 10px;
@@ -16,16 +18,19 @@ h1 {
 }
 
 h2 {
+  position: relative;
+  top: -30px;
   font-size: 25px;
   margin-top: 10px;
   color: black;
 }
 
-/* Styling the Game Rules List */
 #game-rules {
+  position: relative;
+  top: -50px;
   list-style-type: decimal;
   list-style-position: inside;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.191);
   padding: 15px;
   border-radius: 10px;
   text-align: center;
@@ -50,6 +55,8 @@ button {
 }
 
 #dodgeball {
+  position: relative;
+  top: -50px;
   max-width: 100%;
   height: auto;
   width: 250px;
@@ -66,6 +73,8 @@ button {
 }
 
 #word-display span {
+  position: relative;
+  top: -50px;
   padding: 5px;
   border: 2px solid blue;
   min-width: 30px;
@@ -74,8 +83,11 @@ button {
 }
 
 #letters {
+  position: relative;
+  top: -50px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  /* Help with Google */
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); 
   gap: 5px;
   width: 90%;
   max-width: 600px;
@@ -93,6 +105,8 @@ button {
 }
 
 #gameMessage {
+  position: relative;
+  top: -40px;
   font-size: 1.5rem;
   font-weight: bold;
   color: black;
@@ -100,13 +114,20 @@ button {
 }
 
 #restartBtn {
+  position: relative;
+  top: -40px;
   background-color: #CC3700;
   color: white;
   margin-top: 10px;
+  font-size: 20px;
+  margin: auto;
 }
 
 #startBtn {
+  position: relative;
+  top: -40px;
   background-color: #CC3700;
   color: white;
   margin: 20px 0;
 }
+
