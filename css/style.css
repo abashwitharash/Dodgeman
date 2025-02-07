@@ -115,10 +115,10 @@ button {
 
 #restartBtn {
   position: relative;
-  top: -40px;
+  top: -20px;
   background-color: #CC3700;
   color: white;
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 20px;
   margin: auto;
 }
