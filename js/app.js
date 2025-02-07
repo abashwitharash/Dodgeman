@@ -26,7 +26,10 @@
 /*-------------------------------- Constants --------------------------------*/
 const words = ['mavericks', 'clippers', 'steelers', 'raiders', 
     'chargers', 'cowboys', 'canucks', 
-    'padres', 'commanders']
+    'padres', 'commanders', 'cardinals', 'falcons', 'panthers', 
+'bengals', 'broncos', 'jaguars', 'vikings', 'buccaneers', 'celtics',
+'grizzlies', 'timberwolves', 'raptors', 'wizards', 'diamondbacks', 'dodgers', 'yankeez',
+'mariners', 'rangers',]
 
     const restartBtnEl = document.querySelector('#restartBtn');
     const lettersEl = document.querySelector('#letters');
@@ -62,7 +65,7 @@ const startGame = () => {
         }
     }
     updateWordDisplay();
-    console.log(randomWord);
+    // console.log(randomWord);
 }
 
 const updateWordDisplay = () => {
@@ -85,7 +88,6 @@ const handleClick = (event) => {
 const clickedLetter = (letter) => {
 
     if (randomWord.includes(letter)) {
-        console.log('Correct Guess:', letter);
         for (let i = 0; i < randomWord.length; i++) {
             if (randomWord[i] === letter) {
                 guessedLetter[i] = letter;
@@ -93,10 +95,8 @@ const clickedLetter = (letter) => {
         }
         updateWordDisplay();
     } else {
-        console.log('Incorrect guess:', letter);
         incorrectGuess++;  // Increment incorrect guesses
         dodgeballEl.style.display = 'block';
-        console.log(incorrectGuess)
         dodgeballEl.src = `./assets/${incorrectGuess}.png`;
 
     }
@@ -105,8 +105,7 @@ const clickedLetter = (letter) => {
         letterBtnEl.forEach(button => {
             button.disabled = true;  // Disable all buttons once game is over
         });
-        console.log('You lost');
-        gameMessageEl.innerHTML = `Game Over! The word was: ${randomWord}`;
+        gameMessageEl.innerHTML = `Game Over, You Lose! The word was: ${randomWord}`;
     }
 
     // Check for win condition (all letters guessed)
@@ -115,7 +114,6 @@ const clickedLetter = (letter) => {
         letterBtnEl.forEach(button => {
             button.disabled = true; 
         });
-        console.log('You won!');
         gameMessageEl.innerHTML = 'Congratulations! You won!';
     }
 };
@@ -127,15 +125,11 @@ const resetGame = () => {
     guessedLetter = [];
     dodgeballEl.src = '';
     startGame();
-//loop through eaxh button and disables the diable button code resetting 
+//loop through each button and disables the diable button code resetting 
 letterBtnEl.forEach(button => button.disabled = false); 
 gameMessageEl.innerHTML = '';
 };
-/*------------------------ Cached Element References ------------------------*/
 
-/*-------------------------------- Functions --------------------------------*/
-
-/*----------------------------- Event Listeners -----------------------------*/
 
 startBtnEl.addEventListener('click', startGame)
 Array.from(letterBtnEl).forEach(letterBtn => {   //Google helped me form an array throught html - very awesome 
