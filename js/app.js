@@ -24,7 +24,6 @@
 
 
 /*-------------------------------- Constants --------------------------------*/
-const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
 const words = ['mavericks', 'clippers', 'steelers', 'raiders', 
     'chargers', 'cowboys', 'canucks', 
     'padres', 'commanders']
@@ -65,7 +64,7 @@ const startGame = () => {
     updateWordDisplay();
     console.log(randomWord);
 }
-// need to create a new display so it prints into the html 
+
 const updateWordDisplay = () => {
     wordDisplayEl.innerHTML = '';  // Clear any existing content - help with MDN
     guessedLetter.forEach(letter => {
@@ -98,7 +97,8 @@ const clickedLetter = (letter) => {
         incorrectGuess++;  // Increment incorrect guesses
         dodgeballEl.style.display = 'block';
         console.log(incorrectGuess)
-        dodgeballEl.src = `${'../assets/'+incorrectGuess+'.png'}`
+        dodgeballEl.src = `./assets/${incorrectGuess}.png`;
+
     }
     if (incorrectGuess === 6) {
         gameOver = true;
@@ -138,8 +138,9 @@ gameMessageEl.innerHTML = '';
 /*----------------------------- Event Listeners -----------------------------*/
 
 startBtnEl.addEventListener('click', startGame)
-letterBtnEl.forEach(letterBtn => {
-    letterBtn.addEventListener('click', handleClick);  // Use the handleClick function for each button click
-}); 
+Array.from(letterBtnEl).forEach(letterBtn => {   //Google helped me form an array throught html - very awesome 
+    letterBtn.addEventListener('click', handleClick);
+});
+
     restartBtnEl.addEventListener('click', resetGame);
 
