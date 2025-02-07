@@ -131,3 +131,41 @@ button {
   margin: 20px 0;
 }
 
+@media (max-width: 500px) {
+  #letters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    max-width: 300px;
+    gap: 3px;
+  }
+
+  .letter-button {
+    font-size: 20px; 
+    padding: 5px;
+    width: 35px; 
+    height: 35px; 
+  }
+
+  #word-display {
+    font-size: 1rem; 
+    gap: 10px;
+  }
+
+  #word-display span {
+    width: 25px;
+    font-size: 1rem;
+    padding: 3px;
+  }
+
+  #game-rules {
+    font-size: 15px;
+    width: 80%;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+}
