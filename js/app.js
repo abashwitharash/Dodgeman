@@ -65,7 +65,6 @@ const startGame = () => {
         }
     }
     updateWordDisplay();
-    // console.log(randomWord);
 }
 
 const updateWordDisplay = () => {
@@ -132,7 +131,7 @@ gameMessageEl.innerHTML = '';
 
 
 startBtnEl.addEventListener('click', startGame)
-Array.from(letterBtnEl).forEach(letterBtn => {   //Google helped me form an array throught html - very awesome 
+Array.from(letterBtnEl).forEach(letterBtn => {   //Google helped me form an array throught html
     letterBtn.addEventListener('click', handleClick);
 });
 
